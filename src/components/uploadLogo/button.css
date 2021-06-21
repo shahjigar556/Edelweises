@@ -1,0 +1,20 @@
+.new-button {
+    display: inline-block;
+    padding: 8px 12px; 
+    cursor: pointer;
+    border-radius: 4px;
+    background-color:#68de76;
+    font-size: 16px;
+    color:black;
+  }
+  input[type="file"] {
+  position: absolute;
+  z-index: -1;
+  top: 6px;
+  left: 0;
+  font-size: 15px;
+  color: rgb(153,153,153);
+  }
+  .button-wrap {
+  position: relative;
+  }
