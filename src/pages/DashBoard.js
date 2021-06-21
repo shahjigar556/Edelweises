@@ -16,11 +16,6 @@ import Footer from "../components/Footer";
 import DashBoardTable from "./DashBoardTable";
 
 const useStyles = makeStyles((theme) => ({
-  topContainer: {
-    [theme.breakpoints.down("sm")]: {
-      height: "1500px",
-    },
-  },
   root: {
     margin: "auto",
     width: "80%",

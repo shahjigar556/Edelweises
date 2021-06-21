@@ -8,11 +8,6 @@ import { useState } from "react";
 import Footer from "../components/Footer";
 
 const useStyles = makeStyles((theme) => ({
-  topContainer: {
-    [theme.breakpoints.down("sm")]: {
-      height: "1500px",
-    },
-  },
   root: {
     margin: "auto",
     width: "80%",

@@ -10,11 +10,6 @@ import Button from "../components/uploadLogo/Button";
 import Footer from "../components/Footer";
 
 const useStyles = makeStyles((theme) => ({
-  // topContainer: {
-  //   [theme.breakpoints.down("sm")]: {
-  //     height: "1200px",
-  //   },
-  // },
   leftPart: {
     backgroundColor: "#212529",
     display: "flex",
