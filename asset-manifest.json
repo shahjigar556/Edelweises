@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Edelweises/static/css/main.6e4875f8.chunk.css",
+    "main.js": "/Edelweises/static/js/main.e1e3eff2.chunk.js",
+    "main.js.map": "/Edelweises/static/js/main.e1e3eff2.chunk.js.map",
+    "runtime-main.js": "/Edelweises/static/js/runtime-main.971793ba.js",
+    "runtime-main.js.map": "/Edelweises/static/js/runtime-main.971793ba.js.map",
+    "static/js/2.98084d30.chunk.js": "/Edelweises/static/js/2.98084d30.chunk.js",
+    "static/js/2.98084d30.chunk.js.map": "/Edelweises/static/js/2.98084d30.chunk.js.map",
+    "static/js/3.75de9320.chunk.js": "/Edelweises/static/js/3.75de9320.chunk.js",
+    "static/js/3.75de9320.chunk.js.map": "/Edelweises/static/js/3.75de9320.chunk.js.map",
+    "index.html": "/Edelweises/index.html",
+    "static/css/main.6e4875f8.chunk.css.map": "/Edelweises/static/css/main.6e4875f8.chunk.css.map",
+    "static/js/2.98084d30.chunk.js.LICENSE.txt": "/Edelweises/static/js/2.98084d30.chunk.js.LICENSE.txt",
+    "static/media/companyLogo.cfd2d39f.png": "/Edelweises/static/media/companyLogo.cfd2d39f.png",
+    "static/media/laptop.76d19b86.jpg": "/Edelweises/static/media/laptop.76d19b86.jpg",
+    "static/media/upload.9b17eb77.jpg": "/Edelweises/static/media/upload.9b17eb77.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.971793ba.js",
+    "static/js/2.98084d30.chunk.js",
+    "static/css/main.6e4875f8.chunk.css",
+    "static/js/main.e1e3eff2.chunk.js"
+  ]
+}
