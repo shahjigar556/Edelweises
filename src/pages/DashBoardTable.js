@@ -5,7 +5,7 @@ import TableData from "../components/TableData";
 function DashBoardTable() {
   const data = [1, 2, 3, 4];
   return (
-    <div className="table-responsive">
+    <div className="table-responsive" style={{fontStyle:'italic'}}>
       <table className="table" >
         <thead className="table-dark">
           <tr>

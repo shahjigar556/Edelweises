@@ -29,32 +29,44 @@ const useStyles = makeStyles((theme) => ({
   },
   heading: {
     fontWeight: "bold",
+    fontSize:'30px',
+    fontStyle:'italic'
   },
   imgAlign: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
+  margin:{
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "20px",
+    }
+  },
   input: {
     border: "none",
     backgroundColor: "white",
     borderBottom: "1px solid black",
+    [theme.breakpoints.down("sm")]: {
+      width:'100%'
+    }
+    
   },
   additionalInput: {
     border: "none",
     backgroundColor: "white",
-    borderBottom: "1px solid black",
+    borderBottom: "2px solid #818A91",
     marginTop: "10px",
     width: "100%",
     padding: "10px",
   },
   downloadBtn: {
     marginTop: "40px",
-    backgroundColor:'#68de76',
+    backgroundColor:'white',
     color:"black",
     [theme.breakpoints.down("sm")]: {
       marginBottom: "20px",
     },
+    borderRadius:'5px'
   },
   preview: {
     height: "70%",
@@ -83,24 +95,22 @@ function CoBranding() {
             <div className={classes.heading}>Co Branding</div>
 
             <Grid container>
-              <Grid item md={6} xs={12}>
+              <Grid item sm={6} xs={12}>
                 <div style={{ marginTop: "20px" }}>
                   <Checkbox
-                    defaultChecked
                     color="primary"
                     inputProps={{ "aria-label": "secondary checkbox" }}
                   />
-                  <span>Logo</span>
+                  <span style={{fontStyle:'italic'}}>Logo</span>
                 </div>
 
                 <Checkbox
-                  defaultChecked
                   color="primary"
                   inputProps={{ "aria-label": "secondary checkbox" }}
                 />
-                <span>Text</span>
+                <span style={{fontStyle:'italic'}}>Text</span>
               </Grid>
-              <Grid item md={6} xs={12}>
+              <Grid item sm={6} xs={12}>
                 <div className={classes.imgAlign}>
                   <img
                     style={{
@@ -112,12 +122,11 @@ function CoBranding() {
                     className="img-fluid"
                   />
                   <div style={{ marginTop: "10px", marginBottom: "20px" }}>
-                    <Button text="Upload New" />
+                    <Button text="Upload New"  color="white" backgroundColor="black"/>
                     <button
                       onClick={handleLogoUpdate}
-                      style={{ marginTop: "10px",backgroundColor:'#68de76',color:"black" }}
-                      className="btn btn-primary"
-                      
+                      style={{ marginTop: "10px",backgroundColor:'black',color:"white",fontStyle:'italic' }}
+                      className="btn"
                     >
                       Update
                     </button>
@@ -126,16 +135,16 @@ function CoBranding() {
               </Grid>
             </Grid>
             <Grid container style={{ marginTop: "20px" }}>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={6} className={classes.margin}>
                 <label for="name">Distributor Name</label>
                 <input className={classes.input} type="text" id="name" />
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={6} className={classes.margin}>
                 <label for="ARN">Distributor ARN</label>
                 <input className={classes.input} type="text" id="ARN" />
               </Grid>
             </Grid>
-            <div style={{ marginTop: "20px", fontWeight: "bold" }}>
+            <div style={{ marginTop: "20px", fontWeight: "bold" ,fontSize:'30px',fontStyle:'italic'}}>
               Additional Details
             </div>
             <div style={{ marginTop: "30px" }}>
@@ -172,15 +181,15 @@ function CoBranding() {
             </div>
             <center>
               <button
-                className="btn btn-primary"
-                style={{backgroundColor:'#68de76',color:"black",marginTop: "30px", marginBottom: "40px"}}
+                className="btn"
+                style={{backgroundColor:'black',color:"white",marginTop: "30px", marginBottom: "40px"}}
               >
                 Submit
               </button>
             </center>
           </Grid>
           <Grid item xs={12} md={6} className={classes.rightPart}>
-            <div className={classes.heading} style={{ marginTop: "10px" }}>
+            <div className={classes.heading} style={{ marginTop: "10px" ,color:'white'}}>
               Preview
             </div>
             <div style={{ color: "white", marginBottom: "15px" }}>
@@ -189,7 +198,7 @@ function CoBranding() {
             <div className={classes.preview}>
               {/* Empty container for preview */}
             </div>
-            <button type="button" className={classes.downloadBtn}>
+            <button type="button" className={`${classes.downloadBtn} btn`}>
               Download
             </button>
           </Grid>

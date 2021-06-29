@@ -11,12 +11,13 @@ import Footer from "../components/Footer";
 
 const useStyles = makeStyles((theme) => ({
   leftPart: {
-    backgroundColor: "#212529",
+    backgroundColor: "#2c3338",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
+    paddingBottom:'5%'
   },
   root: {
     margin: "auto",
@@ -27,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
   bold: {
     fontWeight: "bold",
+    fontStyle:'italic'
   },
   line: {
     width: "80%",
@@ -105,7 +107,7 @@ function Profile() {
                   <center>
                     <button
                       className="btn btn-primary text-center"
-                      style={{backgroundColor:'#68de76',color:"black",margin: "20px"}}
+                      style={{backgroundColor:'white',color:"black",margin: "20px",border:'1px solid white'}}
                     >
                       Upload/Update
                     </button>
@@ -130,7 +132,7 @@ function Profile() {
                   Distributor ARN No
                   <div className={classes.bold}>{ARN}</div>
                 </Grid>
-                <div style={{ marginTop: "20px", fontSize: "20px" }}>
+                <div style={{ marginTop: "20px", fontSize: "30px",fontStyle:"italic" }}>
                   Contact Person
                 </div>
                 <hr className={classes.line} />
@@ -144,7 +146,7 @@ function Profile() {
                   Email Id
                   <div className={classes.bold}>{email}</div>
                 </Grid>
-                <Grid item xs={12} md={6} style={{ marginTop: "10px" }}>
+                <Grid item xs={12} md={6} style={{ marginTop: "25px" }}>
                   Mobile No
                   <div className={classes.bold}>{mobile}</div>
                 </Grid>

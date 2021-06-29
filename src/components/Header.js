@@ -1,38 +1,38 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import companyLogo from '../images/companyLogo.png'
-import {NavLink} from 'react-router-dom';
-import {useState} from 'react'
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import companyLogo from "../images/companyLogo.png";
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    width:'100%'
+    width: "100%",
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1,
+    flexGrow: 0.9,
   },
-  linkStyle:{
-    textDecoration:'none',
-    color:'black'
+  linkStyle: {
+    textDecoration: "none",
+    color: "black",
   },
-  font:{
+  font: {
     [theme.breakpoints.down("sm")]: {
-      fontSize:'15px',
-      marginLeft:'1000px'
+      fontSize: "15px",
+      marginLeft: "1000px",
+      paddingTop:'5px'
     },
-    
-  }
+  },
 }));
 
 export default function MenuAppBar() {
@@ -46,30 +46,54 @@ export default function MenuAppBar() {
   };
 
   const handleMenu = (event) => {
-    console.log(event.currentTarget)
+    console.log(event.currentTarget);
     setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
-    console.log('close clicked')
+    console.log("close clicked");
     setAnchorEl(null);
   };
 
-  const [name,setName]=useState('ADMIN');
-  const [ARN,setARN]=useState(123456);
+  const [name, setName] = useState("ADMIN");
+  const [ARN, setARN] = useState(123456);
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar
+        position="static"
+        style={{ background: "#212529", color: "white" }}
+        elevation="0"
+      >
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-          <img src={companyLogo} alt="companyLogo" className="img-fluid" height="200px" width="200px"/>
+            {/* <img
+              src={companyLogo}
+              style={{ marginLeft: "10%" }}
+              alt="companyLogo"
+              className="img-fluid"
+              height="200px"
+              width="200px"
+            /> */}
+            <div style={{marginLeft:'11%'}}>
+                Logo
+            </div>
           </Typography>
           {auth && (
-            <div style={{display:"flex"}}>
-              <div style={{marginRight:'50px',padding:'10px',marginLeft:'30px'}} className={classes.font}>
-                  <p>{name}</p>
-                  <p>ARN:{ARN}</p>
+            <div style={{ display: "flex" }}>
+              <div
+                style={{  
+                  padding: "10px",
+                  marginLeft: "20px",
+                }}
+                className={classes.font}
+              >
+                <p style={{ fontFamily: "poppins", fontStyle: "italic",marginBottom:'0' }}>
+                  {name}
+                </p>
+                <p style={{ fontFamily: "poppins", fontStyle: "italic"}}>
+                  ARN :{" "}{ARN}
+                </p>
               </div>
               <IconButton
                 aria-label="account of current user"
@@ -77,41 +101,61 @@ export default function MenuAppBar() {
                 aria-haspopup="true"
                 onClick={handleMenu}
                 color="inherit"
+                
               >
-                <AccountCircle style={{fontSize:"45px"}}/>
+                <AccountCircle style={{ fontSize: "45px" }} />
               </IconButton>
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 open={open}
                 onClose={handleClose}
               >
-                <NavLink to='/profile' className={classes.linkStyle} activeStyle={{color:'blue'}}>
+                <NavLink
+                  to="/profile"
+                  className={classes.linkStyle}
+                  activeStyle={{ color: "blue" }}
+                >
                   <MenuItem onClick={handleClose}>Profile</MenuItem>
                 </NavLink>
-                <NavLink to='/dashboard' className={classes.linkStyle} activeStyle={{color:'blue'}}>
-                    <MenuItem onClick={handleClose}>Dashboard</MenuItem>
+                <NavLink
+                  to="/dashboard"
+                  className={classes.linkStyle}
+                  activeStyle={{ color: "blue" }}
+                >
+                  <MenuItem onClick={handleClose}>Dashboard</MenuItem>
                 </NavLink>
-                <NavLink to='/cobranding' className={classes.linkStyle}  activeStyle={{color:'blue'}}>
-                    <MenuItem onClick={handleClose}>Cobranding</MenuItem>
+                <NavLink
+                  to="/cobranding"
+                  className={classes.linkStyle}
+                  activeStyle={{ color: "blue" }}
+                >
+                  <MenuItem onClick={handleClose}>Cobranding</MenuItem>
                 </NavLink>
-                <NavLink to='/upload' className={classes.linkStyle}  activeStyle={{color:'blue'}}>
-                    <MenuItem onClick={handleClose}>Upload</MenuItem>
+                <NavLink
+                  to="/upload"
+                  className={classes.linkStyle}
+                  activeStyle={{ color: "blue" }}
+                >
+                  <MenuItem onClick={handleClose}>Upload</MenuItem>
                 </NavLink>
               </Menu>
             </div>
           )}
         </Toolbar>
       </AppBar>
+      {/* <center>
+        <hr style={{ width: "80%" }} />
+      </center> */}
     </div>
   );
 }

@@ -1,9 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
-import { Container, Col, Row } from "react-bootstrap";
 import { Grid, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-import upload from "../images/upload.jpg";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -35,7 +33,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     fontSize: "20px",
     marginTop: "20px",
-    color:'white'
+    color:'white',
+    fontStyle:'italic',
+    [theme.breakpoints.down("sm")]: {
+      marginBottom:'50px'
+   }
   },
   leftPart: {
     backgroundColor: "#212529",
@@ -49,6 +51,9 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     width: "100%",
     minWidth: 120,
+    fontStyle:'italic',
+    fontFamily:'poppins',
+    fontWeight:'900'
   },
   inputStyle: {
     width: "100%",
@@ -65,13 +70,17 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "10px",
     marginTop: "20px",
     width: "100%",
-    cursor:'pointer'
+    cursor:'pointer',
+    fontStyle:'poppins',
+    fontStyle:'italic'
   },
   label: {
     marginBottom: "10px",
-    backgroundColor:'#68de76',
+    backgroundColor:'black',
+    color:"white",
     borderRadius:'5px',
-    padding:'5px',
+    padding:'10px 20px 10px 20px',
+    fontStyle:'italic',
     cursor:'pointer'
   },
   fileUpload: {
@@ -223,10 +232,10 @@ function UploadPage() {
                   marginBottom: "50px",
                 }}
               >
-                <Box boxShadow={3} style={{ marginRight: "30px" }}>
-                  <button className="btn btn-primary" style={{backgroundColor:'#68de76',color:"black"}}>Preview</button>
+                <Box style={{ marginRight: "30px" }}>
+                  <button className="btn" style={{backgroundColor:'black',color:"white",fontStyle:'italic',}}>Preview</button>
                 </Box>
-                <button className="btn btn-primary" style={{backgroundColor:'#68de76',color:"black"}}>Upload</button>
+                <button className="btn" style={{backgroundColor:'black',color:"white",fontStyle:'italic',}}>Upload</button>
               </div>
             </div>
           </Grid>

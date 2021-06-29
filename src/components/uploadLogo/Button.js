@@ -1,13 +1,13 @@
 import React from "react";
 import './button.css';
-function Button({text}) {
+function Button({text,color,backgroundColor}) {
     const handleChange=()=>{
         console.log('Upload button clicked')
     }
   return (
     <React.Fragment>
       <div className="button-wrap">
-        <label className="new-button" for="upload">
+        <label className="new-button" for="upload" style={{color,backgroundColor}}>
           {" "}
           {text}
           <span style={{ marginLeft: "10px" }}>

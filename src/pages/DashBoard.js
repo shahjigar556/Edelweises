@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "50px",
     borderRadius: "20px",
     backgroundColor: "#f1f1f1",
-    padding: "3% 5% 0 5%",
+    padding: "3% 5% 5% 5%",
   },
   formControl: {
     margin: theme.spacing(1),
@@ -35,21 +35,29 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#e0e3e9",
     padding: "20px  10px 10px",
   },
-  padding:{
+  padding: {
     [theme.breakpoints.up("sm")]: {
-      paddingLeft:'5%'
-    }
-  }
+      paddingLeft: "5%",
+    },
+  },
+  option: {
+    fontFamily: "poppins",
+    fontStyle: "italic",
+    fontWeight: "600",
+  },
 }));
 function DashBoard() {
   const classes = useStyles();
   return (
     <div>
       <Header />
+
       <div className={classes.root}>
         <div style={{ display: "flex" }}>
-          <div>Marketing Collaterals</div>
-          <div style={{ marginLeft: "80%" }}>
+          <div style={{ fontSize: "30px", fontWeight: "bold" }}>
+            Marketing Collaterals
+          </div>
+          <div style={{ marginLeft: "60%" }}>
             <img
               src={filter}
               className="img-fluid"
@@ -62,7 +70,7 @@ function DashBoard() {
           <Grid item xs={12} md={6}>
             <FormControl className={classes.formControl}>
               <InputLabel id="demo-simple-select-helper-label">
-                Category
+                <div className={classes.option}>Category</div>
               </InputLabel>
               <Select
                 labelId="demo-simple-select-helper-label"
@@ -81,7 +89,7 @@ function DashBoard() {
           <Grid item xs={12} md={6} className={classes.padding}>
             <FormControl className={classes.formControl}>
               <InputLabel id="demo-simple-select-helper-label">
-                SubCategory
+                <div className={classes.option}>SubCategory</div>
               </InputLabel>
               <Select
                 labelId="demo-simple-select-helper-label"
@@ -100,7 +108,7 @@ function DashBoard() {
           <Grid item xs={12} md={6}>
             <FormControl className={classes.formControl}>
               <InputLabel id="demo-simple-select-helper-label">
-                SubCategory
+                <div className={classes.option}>SubCategory</div>
               </InputLabel>
               <Select
                 labelId="demo-simple-select-helper-label"
@@ -117,7 +125,7 @@ function DashBoard() {
             </FormControl>
           </Grid>
         </Grid>
-        <hr className={classes.line} style={{marginBottom:"10px"}}/>
+        <hr className={classes.line} style={{ marginBottom: "10px" }} />
         <DashBoardTable />
       </div>
       <Footer />
