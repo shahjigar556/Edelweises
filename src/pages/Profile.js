@@ -9,9 +9,10 @@ import laptop from "../images/laptop.jpg";
 import Button from "../components/uploadLogo/Button";
 import Footer from "../components/Footer";
 
+
 const useStyles = makeStyles((theme) => ({
   leftPart: {
-    backgroundColor: "#2c3338",
+    backgroundColor: "#CCCCCC",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -21,17 +22,19 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     margin: "auto",
-    width: "80%",
-    marginTop: "50px",
+    marginLeft:'10%',
+    width: "60%",
+    overflowY : 'hidden',
     borderRadius: "20px",
     backgroundColor: "#f1f1f1",
   },
   bold: {
-    fontWeight: "bold",
-    fontStyle:'italic'
+    // fontWeight: "bold",
+    // fontStyle:'italic'
   },
   line: {
     width: "80%",
+    marginTop: '-5px',
   },
   imgStyle: {
     borderRadius: "50%",
@@ -66,8 +69,10 @@ function Profile() {
   const [mobile, setMobile] = useState(123456789);
   return (
     <div >
-      <Header />
-      <div style={{marginBottom:'100px'}}>
+      {/* <Header /> */}
+      <div style={{display:'flex', marginBottom: '70px'}}>
+        <div style={{width:"200px",height:"500px",background:'#f5f5f5'}}>
+        </div>
         <div className={classes.root}>
           <Grid container>
             <Grid item xs={12} md={4} className={classes.leftPart}>
@@ -87,8 +92,8 @@ function Profile() {
                     src={laptop}
                     style={{
                       borderRadius: "50%",
-                      height: "150px",
-                      width: "150px",
+                      height: "170px",
+                      width: "170px",
                     }}
                     className="img-fluid"
                   />
@@ -100,17 +105,13 @@ function Profile() {
                 >
                   <center>
                     {/* <input type="file" /> */}
-                    <Button text="Upload Logo"/>
+                    <Button backgroundColor="#fff" text="Upload Logo" type={true}/>
                   </center>
                 </Grid>
                 <Grid item xs={12}>
                   <center>
-                    <button
-                      className="btn btn-primary text-center"
-                      style={{backgroundColor:'white',color:"black",margin: "20px",border:'1px solid white'}}
-                    >
-                      Upload/Update
-                    </button>
+                    <Button backgroundColor="#fff" text="Update Logo" type={false}/>
+
                   </center>
                 </Grid>
               </Grid>
@@ -118,42 +119,42 @@ function Profile() {
 
             <Grid
               className={classes.imgMargin}
-              style={{ marginLeft: "50px" }}
+              style={{ marginLeft: "50px" ,marginTop: '50px' }}
               item
               xs={12}
               md={6}
             >
               <Grid container>
                 <Grid item xs={12} md={6}>
-                  Distributor Name
+                <div style={{fontWeight: '600'}}>Distributor Name</div>
                   <div className={classes.bold}>{name}</div>
                 </Grid>
                 <Grid className={classes.margin} item xs={12} md={6}>
-                  Distributor ARN No
+                  <div style={{fontWeight: '600'}}>Distributor ARN No</div>
                   <div className={classes.bold}>{ARN}</div>
                 </Grid>
-                <div style={{ marginTop: "20px", fontSize: "30px",fontStyle:"italic" }}>
+                <div style={{ marginTop: "40px", fontSize: "30px"}}>
                   Contact Person
                 </div>
                 <hr className={classes.line} />
               </Grid>
               <Grid container>
                 <Grid className={classes.margin} item xs={12} md={6}>
-                  Name of the Person
+                <div style={{fontWeight: '600'}}>Name of the Person</div>
                   <div className={classes.bold}>{personName}</div>
                 </Grid>
                 <Grid className={classes.margin} item xs={12} md={6}>
-                  Email Id
+                <div style={{fontWeight: '600'}}>Email ID</div>
                   <div className={classes.bold}>{email}</div>
                 </Grid>
                 <Grid item xs={12} md={6} style={{ marginTop: "25px" }}>
-                  Mobile No
+                <div style={{fontWeight: '600'}}>Mobile Number</div>
                   <div className={classes.bold}>{mobile}</div>
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </div>
+        </div>{/*root*/}
       </div>
       <Footer />
     </div>

@@ -50,7 +50,7 @@ function DashBoard() {
   const classes = useStyles();
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
 
       <div className={classes.root}>
         <div style={{ display: "flex" }}>

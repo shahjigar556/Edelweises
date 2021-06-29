@@ -110,7 +110,7 @@ function UploadPage() {
 
   return (
     <div >
-      <Header />
+      {/* <Header /> */}
       <div className={classes.root}>
         <Grid container style={{ marginBottom: "50px" }}>
           <Grid

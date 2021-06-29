@@ -1,161 +1,130 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import companyLogo from "../images/companyLogo.png";
-import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Dashboard from '../pages/DashBoard';
+import Upload from '../pages/UploadPage';
+import CoBranding from '../pages/CoBranding';
+import Profile from '../pages/Profile';
+import {useEffect} from 'react';
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    width: "100%",
+    backgroundColor: theme.palette.background.paper,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
+  appbar_color:{
+    backgroundColor: '#fff',
+    color: '#000',
+    borderBottom:' 2px solid #808080',
   },
-  title: {
-    flexGrow: 0.9,
+  customStyleOnTab:{
+    fontSize: '20px',
+    color:'#707070'
   },
-  linkStyle: {
-    textDecoration: "none",
-    color: "black",
-  },
-  font: {
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "15px",
-      marginLeft: "1000px",
-      paddingTop:'5px'
-    },
-  },
+  activeTab:{
+    fontSize:'20px',
+    fontWeight:'600',
+    color:'#000'
+  }
+
 }));
 
-export default function MenuAppBar() {
+export default function Header() {
   const classes = useStyles();
-  const [auth, setAuth] = React.useState(true);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  const [value, setValue] = React.useState(0);
+  useEffect(()=>{
+    console.log('In Header.js');
+  },[])
 
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
-
-  const handleMenu = (event) => {
-    console.log(event.currentTarget);
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    console.log("close clicked");
-    setAnchorEl(null);
-  };
-
-  const [name, setName] = useState("ADMIN");
-  const [ARN, setARN] = useState(123456);
 
   return (
     <div className={classes.root}>
-      <AppBar
-        position="static"
-        style={{ background: "#212529", color: "white" }}
-        elevation="0"
-      >
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            {/* <img
-              src={companyLogo}
-              style={{ marginLeft: "10%" }}
-              alt="companyLogo"
-              className="img-fluid"
-              height="200px"
-              width="200px"
-            /> */}
-            <div style={{marginLeft:'11%'}}>
-                Logo
-            </div>
-          </Typography>
-          {auth && (
-            <div style={{ display: "flex" }}>
-              <div
-                style={{  
-                  padding: "10px",
-                  marginLeft: "20px",
-                }}
-                className={classes.font}
-              >
-                <p style={{ fontFamily: "poppins", fontStyle: "italic",marginBottom:'0' }}>
-                  {name}
-                </p>
-                <p style={{ fontFamily: "poppins", fontStyle: "italic"}}>
-                  ARN :{" "}{ARN}
-                </p>
-              </div>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-                
-              >
-                <AccountCircle style={{ fontSize: "45px" }} />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={open}
-                onClose={handleClose}
-              >
-                <NavLink
-                  to="/profile"
-                  className={classes.linkStyle}
-                  activeStyle={{ color: "blue" }}
-                >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                </NavLink>
-                <NavLink
-                  to="/dashboard"
-                  className={classes.linkStyle}
-                  activeStyle={{ color: "blue" }}
-                >
-                  <MenuItem onClick={handleClose}>Dashboard</MenuItem>
-                </NavLink>
-                <NavLink
-                  to="/cobranding"
-                  className={classes.linkStyle}
-                  activeStyle={{ color: "blue" }}
-                >
-                  <MenuItem onClick={handleClose}>Cobranding</MenuItem>
-                </NavLink>
-                <NavLink
-                  to="/upload"
-                  className={classes.linkStyle}
-                  activeStyle={{ color: "blue" }}
-                >
-                  <MenuItem onClick={handleClose}>Upload</MenuItem>
-                </NavLink>
-              </Menu>
-            </div>
-          )}
-        </Toolbar>
+      <AppBar position="static" className={classes.appbar_color} elevation={0}>
+        <Tabs 
+            value={value}
+            onChange={handleChange} 
+            aria-label="simple tabs example" 
+            TabIndicatorProps={{style: {backgroundColor: "white" , fontFamily : 'Poppins'}}}
+            classes={{indicator: classes.customStyleOnActiveTab}}>
+          <Tab label={<span className={ value === 0 ? classes.activeTab : classes.customStyleOnTab}>Dashboard</span>}  {...a11yProps(0)} />
+          <Tab label={<span className={ value === 1 ? classes.activeTab : classes.customStyleOnTab}>Upload</span>}  {...a11yProps(1)} />
+          <Tab label={<span className={ value === 2 ? classes.activeTab : classes.customStyleOnTab}>Co-Branding</span>} {...a11yProps(2)} />
+          <Tab label={<span className={ value === 3 ? classes.activeTab : classes.customStyleOnTab}>Profile</span>} {...a11yProps(3)} />
+        </Tabs>
       </AppBar>
-      {/* <center>
-        <hr style={{ width: "80%" }} />
-      </center> */}
+      <TabPanel value={value} index={0}>
+        <Dashboard />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <Upload/>
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <CoBranding/>
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <Profile/>
+      </TabPanel>
     </div>
+    // <div className={classes.root}>
+    //   <AppBar position="static">
+    //     <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+    //       <Tab label="Item One" {...a11yProps(0)} />
+    //       <Tab label="Item Two" {...a11yProps(1)} />
+    //       <Tab label="Item Three" {...a11yProps(2)} />
+    //     </Tabs>
+    //   </AppBar>
+    //   <TabPanel value={value} index={0}>
+    //       <Dashboard />
+    //   </TabPanel>
+    //   <TabPanel value={value} index={1}>
+    //        <Upload/>
+    //   </TabPanel>
+    //   <TabPanel value={value} index={2}>
+    //        <CoBranding/>
+    //   </TabPanel>
+    //    <TabPanel value={value} index={3}>
+    //          <Profile/>
+    //    </TabPanel>
+    // </div>
   );
 }

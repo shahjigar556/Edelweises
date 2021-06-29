@@ -3,20 +3,20 @@ import React from "react";
 function Footer() {
   return (
     <>
-      <div className="footer" style={{ marginTop: "100px" }}>
+      <div className="footer">
         <p
           style={{
-            color: "#feb126",
+            color: "#1A1934",
             fontWeight: 700,
             marginBottom: 0,
             fontSize: "14px",
           }}
         >
-          <a href style={{ color: "#feb126" }}>
+          <a href style={{ color: "#1A1934" }}>
             FAQ
           </a>{" "}
           |{" "}
-          <a href style={{ color: "#feb126" }}>
+          <a href style={{ color: "#1A1934" }}>
             Contact Us
           </a>
         </p>

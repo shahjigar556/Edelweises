@@ -88,7 +88,7 @@ function CoBranding() {
   };
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <div className={classes.root}>
         <Grid container>
           <Grid item md={6} xs={12} className={classes.leftPart}>
