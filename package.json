@@ -1,7 +1,7 @@
 {
-  "name": "login",
+  "name": "edelweises",
   "version": "0.1.0",
-  "homepage": "http://shahjigar556.github.io/Edelweises",
+  "homepage": "http://shahjigar556.github.io/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",

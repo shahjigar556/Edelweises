@@ -13,7 +13,7 @@ function App() {
   return (
     <React.Fragment>
       <Route exact path="/main" component={MainPage} />
-      <Route exact path="/login" component={Login} />
+      <Route exact path="/" component={Login} />
       <Route exact path="/register" component={SignUp} />
       <Route exact path="/upload" component={UploadPage} />
       <Route exact path="/profile" component={Profile} />
