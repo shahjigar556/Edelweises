@@ -12,12 +12,14 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     width: "80%",
     marginTop: "50px",
+    fontFamily:'Poppins',
     borderRadius: "20px",
-    backgroundColor: "#f1f1f1",
+    boxShadow:'5px 5px 18px rgb(197, 197, 197)',
+    backgroundColor: "#fff",
     marginBottom: "70px",
   },
   rightPart: {
-    backgroundColor: "#212529",
+    backgroundColor: "#f5f5f5",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -55,13 +57,13 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     backgroundColor: "white",
     borderBottom: "2px solid #818A91",
-    marginTop: "10px",
     width: "100%",
-    padding: "10px",
+    padding: "5px 10px 10px 5px",
+    marginBottom:"10px"
   },
   downloadBtn: {
     marginTop: "40px",
-    backgroundColor:'white',
+    backgroundColor:'#CCCCCC',
     color:"black",
     [theme.breakpoints.down("sm")]: {
       marginBottom: "20px",
@@ -69,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius:'5px'
   },
   preview: {
-    height: "70%",
+    height: "73%",
     backgroundColor: "white",
     width: "90%",
     [theme.breakpoints.down("sm")]: {
@@ -92,7 +94,7 @@ function CoBranding() {
       <div className={classes.root}>
         <Grid container>
           <Grid item md={6} xs={12} className={classes.leftPart}>
-            <div className={classes.heading}>Co Branding</div>
+            <div className={classes.heading} style={{fontStyle:'normal'}}>Co-Branding</div>
 
             <Grid container>
               <Grid item sm={6} xs={12}>
@@ -182,23 +184,23 @@ function CoBranding() {
             <center>
               <button
                 className="btn"
-                style={{backgroundColor:'black',color:"white",marginTop: "30px", marginBottom: "40px"}}
+                style={{backgroundColor:"#CCCCCC",marginTop: "30px", marginBottom: "40px" ,fontWeight:'500' ,padding:"10px 30px"}}
               >
                 Submit
               </button>
             </center>
           </Grid>
           <Grid item xs={12} md={6} className={classes.rightPart}>
-            <div className={classes.heading} style={{ marginTop: "10px" ,color:'white'}}>
+            <div className={classes.heading} style={{ marginTop: "10px", fontStyle:"normal" }}>
               Preview
             </div>
-            <div style={{ color: "white", marginBottom: "15px" }}>
+            <div style={{  marginBottom: "15px" }}>
               In case of no preview please download and view
             </div>
             <div className={classes.preview}>
               {/* Empty container for preview */}
             </div>
-            <button type="button" className={`${classes.downloadBtn} btn`}>
+            <button type="button" className={`${classes.downloadBtn} btn`} style={{fontWeight:'500',padding:"10px 30px"}}>
               Download
             </button>
           </Grid>

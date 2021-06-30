@@ -48,11 +48,14 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
+    marginTop:'7%',
   },
   appbar_color:{
     backgroundColor: '#fff',
     color: '#000',
     borderBottom:' 2px solid #808080',
+    margin:'auto',
+    width:'75%'
   },
   customStyleOnTab:{
     fontSize: '20px',
@@ -69,16 +72,13 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  useEffect(()=>{
-    console.log('In Header.js');
-  },[])
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
     <div className={classes.root}>
+
       <AppBar position="static" className={classes.appbar_color} elevation={0}>
         <Tabs 
             value={value}
@@ -105,26 +105,5 @@ export default function Header() {
         <Profile/>
       </TabPanel>
     </div>
-    // <div className={classes.root}>
-    //   <AppBar position="static">
-    //     <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-    //       <Tab label="Item One" {...a11yProps(0)} />
-    //       <Tab label="Item Two" {...a11yProps(1)} />
-    //       <Tab label="Item Three" {...a11yProps(2)} />
-    //     </Tabs>
-    //   </AppBar>
-    //   <TabPanel value={value} index={0}>
-    //       <Dashboard />
-    //   </TabPanel>
-    //   <TabPanel value={value} index={1}>
-    //        <Upload/>
-    //   </TabPanel>
-    //   <TabPanel value={value} index={2}>
-    //        <CoBranding/>
-    //   </TabPanel>
-    //    <TabPanel value={value} index={3}>
-    //          <Profile/>
-    //    </TabPanel>
-    // </div>
   );
 }

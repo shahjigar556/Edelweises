@@ -18,7 +18,7 @@ function TableData({ val }) {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <tr>
+      <tr style={{background:"#f5f5f5"}}>
         <th scope="row">Other Funds</th>
         <td>Edelweisses US value offshore Equity fund</td>
         <td>Presentation</td>

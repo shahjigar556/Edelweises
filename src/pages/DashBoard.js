@@ -17,11 +17,14 @@ import DashBoardTable from "./DashBoardTable";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    fontFamily:'Poppins',
     margin: "auto",
+    marginBottom:"70px",
     width: "80%",
     marginTop: "50px",
     borderRadius: "20px",
-    backgroundColor: "#f1f1f1",
+    boxShadow:'5px 5px 18px rgb(197, 197, 197)',
+    backgroundColor: "#fff",
     padding: "3% 5% 5% 5%",
   },
   formControl: {
@@ -41,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   option: {
-    fontFamily: "poppins",
+    fontFamily: "Poppins",
     fontStyle: "italic",
     fontWeight: "600",
   },
@@ -125,9 +128,11 @@ function DashBoard() {
             </FormControl>
           </Grid>
         </Grid>
-        <hr className={classes.line} style={{ marginBottom: "10px" }} />
+        <br/><br/>
+        {/* <hr className={classes.line} style={{ marginBottom: "30px" }} /> */}
         <DashBoardTable />
       </div>
+    
       <Footer />
     </div>
   );

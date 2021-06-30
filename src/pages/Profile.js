@@ -12,7 +12,7 @@ import Footer from "../components/Footer";
 
 const useStyles = makeStyles((theme) => ({
   leftPart: {
-    backgroundColor: "#CCCCCC",
+    backgroundColor: "#f5f5f5",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -21,25 +21,28 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom:'5%'
   },
   root: {
+    fontFamily: 'Poppins',
+    marginTop:'4%',
     margin: "auto",
-    marginLeft:'10%',
-    width: "60%",
+    width: "70%",
     overflowY : 'hidden',
+    boxShadow:'5px 5px 18px rgb(197, 197, 197)',
     borderRadius: "20px",
-    backgroundColor: "#f1f1f1",
+    backgroundColor: "#fff",
   },
   bold: {
     // fontWeight: "bold",
     // fontStyle:'italic'
   },
   line: {
-    width: "80%",
-    marginTop: '-5px',
+    width: "100%",
+    marginTop: '5px',
   },
   imgStyle: {
     borderRadius: "50%",
     height: "100px",
     width: "100px",
+ 
   },
   margin: {
     [theme.breakpoints.down("sm")]: {
@@ -69,13 +72,10 @@ function Profile() {
   const [mobile, setMobile] = useState(123456789);
   return (
     <div >
-      {/* <Header /> */}
       <div style={{display:'flex', marginBottom: '70px'}}>
-        <div style={{width:"200px",height:"500px",background:'#f5f5f5'}}>
-        </div>
         <div className={classes.root}>
           <Grid container>
-            <Grid item xs={12} md={4} className={classes.leftPart}>
+            <Grid item xs={12} md={5} className={classes.leftPart}>
               <Grid container spacing={1}>
                 <Grid
                   item
@@ -83,7 +83,7 @@ function Profile() {
                   style={{
                     margin: "auto",
                     width: "50%",
-                    marginTop: "20px",
+                    marginTop: "40px",
                     display: "flex",
                     justifyContent: "center",
                   }}
@@ -101,7 +101,7 @@ function Profile() {
                 <Grid
                   item
                   xs={12}
-                  style={{ marginTop: "20px" }}
+                  style={{ marginTop: "40px" }}
                 >
                   <center>
                     {/* <input type="file" /> */}
@@ -124,7 +124,7 @@ function Profile() {
               xs={12}
               md={6}
             >
-              <Grid container>
+              <Grid container >
                 <Grid item xs={12} md={6}>
                 <div style={{fontWeight: '600'}}>Distributor Name</div>
                   <div className={classes.bold}>{name}</div>
@@ -133,9 +133,10 @@ function Profile() {
                   <div style={{fontWeight: '600'}}>Distributor ARN No</div>
                   <div className={classes.bold}>{ARN}</div>
                 </Grid>
-                <div style={{ marginTop: "40px", fontSize: "30px"}}>
+                <div style={{ marginTop: "40px", fontSize: "26px" , fontWeight:"700"}}>
                   Contact Person
                 </div>
+                
                 <hr className={classes.line} />
               </Grid>
               <Grid container>

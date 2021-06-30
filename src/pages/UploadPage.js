@@ -10,14 +10,23 @@ import Select from "@material-ui/core/Select";
 import person from "../images/person.png";
 import Footer from "../components/Footer";
 import { useState } from "react";
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: "auto",
+    padding: '35px 35px 15px 35px',
+    fontFamily:"Poppins",
     width: "80%",
     marginTop: "50px",
     borderRadius: "20px",
-    backgroundColor: "#f1f1f1",
+    boxShadow:'5px 5px 18px rgb(197, 197, 197)',
+    backgroundColor: "#fff",
   },
   image: {
     borderRadius: "50%",
@@ -34,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     marginTop: "20px",
     color:'white',
-    fontStyle:'italic',
     [theme.breakpoints.down("sm")]: {
       marginBottom:'50px'
    }
@@ -49,41 +57,58 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    width: "100%",
+    width: "90%",
+    minWidth: 120,  
+    fontFamily:'poppins',
+    fontWeight:'900'
+  },
+  formControl2: {
+    marginTop: '-20px',
+    width: "90%",
     minWidth: 120,
     fontStyle:'italic',
     fontFamily:'poppins',
     fontWeight:'900'
   },
   inputStyle: {
-    width: "100%",
+    width: "90%",
+    height: '50px',
     outline: "none",
     border: "none",
-    borderBottom: "1px solid gray",
-    marginBottom: "10px",
-    marginTop: "20px",
+    marginBottom: "20px",
+    marginTop: '10.5px'
   },
   inputDateStyle: {
     outline: "none",
     border: "none",
-    borderBottom: "1px solid gray",
     marginBottom: "10px",
-    marginTop: "20px",
-    width: "100%",
+    marginTop: '2px',
+    marginLeft: '-2px',     
+    width: "90%",
     cursor:'pointer',
     fontStyle:'poppins',
-    fontStyle:'italic'
   },
   label: {
     marginBottom: "10px",
-    backgroundColor:'black',
-    color:"white",
+    backgroundColor:'#ececec',
+    color:"black",
+    width: '140px',
+    marginLeft: '10px',    
     borderRadius:'5px',
     padding:'10px 20px 10px 20px',
-    fontStyle:'italic',
     cursor:'pointer'
   },
-  fileUpload: {
+
+  label2: {
+    marginBottom: "10px",
+    backgroundColor:'#ececec',
+    color:"black",
+    width: '210px',
+    marginLeft: '15px',
+    borderRadius:'5px',
+    padding:'10px 20px 10px 20px',
+    cursor:'pointer'
+  },  fileUpload: {
     opacity: "0",
     position: "absolute",
     zIndex: "-1",
@@ -109,140 +134,147 @@ function UploadPage() {
   const [date, setDate] = useState(initialDate);
 
   return (
-    <div >
-      {/* <Header /> */}
-      <div className={classes.root}>
-        <Grid container style={{ marginBottom: "50px" }}>
-          <Grid
-            item
-            xs={12}
-            md={4}
-            className={classes.leftPart}
-          >
-            <img src={person} alt="person" className={classes.image} />
-            <div className={classes.heading}>Let's Get You set up</div>
-          </Grid>
-          <Grid item xs={12} md={8}>
-            <div style={{ margin: "auto", width: "70%" }}>
-              <FormControl className={classes.formControl}>
-                <InputLabel id="demo-simple-select-helper-label">
-                  Category
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-helper-label"
-                  id="demo-simple-select-helper"
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-                <FormHelperText>Selected Fund Type</FormHelperText>
-              </FormControl>
+    <React.Fragment>
+          <div className={classes.root}>
+              <Grid container>
+                  <Grid item xs={12} md={6}>
+                        <FormControl className={classes.formControl}>
+                          <InputLabel id="demo-simple-select-helper-label">
+                            Category
+                          </InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                          </Select>
+                          <FormHelperText>Selected Fund Type</FormHelperText>
+                        </FormControl>
+                        {/* End of form control one */}
 
-              <FormControl className={classes.formControl}>
-                <InputLabel id="demo-simple-select-helper-label">
-                  Sub-Category
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-helper-label"
-                  id="demo-simple-select-helper"
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-                <FormHelperText>Selected Fund Name</FormHelperText>
-              </FormControl>
+                        <FormControl className={classes.formControl}>
+                          <InputLabel id="demo-simple-select-helper-label">
+                            Sub-Category
+                          </InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                          </Select>
+                          <FormHelperText>Selected Fund Name</FormHelperText>
+                        </FormControl>
+                        {/* End of form control two */}
 
-              <FormControl className={classes.formControl}>
-                <InputLabel id="demo-simple-select-helper-label">
-                  Marketing Content Type
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-helper-label"
-                  id="demo-simple-select-helper"
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-                <FormHelperText>Selected Content Type</FormHelperText>
-              </FormControl>
-              <Grid container spacing={1}>
-                <Grid item xs={12} md={8}>
-                  <input
-                    type="text"
-                    className={classes.inputStyle}
-                    placeholder="Description"
-                  />
-                </Grid>
-                <Grid item xs={12} md={4}>
-                  <input
-                    type="date"
-                    className={classes.inputDateStyle}
-                    value={date}
-                    onChange={(e) => handleChange(e)}
-                  />
-                </Grid>
-              </Grid>
-              <Grid container spacing={1} style={{ marginTop: "10px" }}>
+                        <FormControl className={classes.formControl}>
+                          <InputLabel id="demo-simple-select-helper-label">
+                            Marketing Content Type
+                          </InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                          </Select>
+                          <FormHelperText>Selected Content Type</FormHelperText>
+                        </FormControl>
+                        {/* End of form control three */}
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                        <Grid item xs={12} >
+                              <TextField
+                                id="standard-multiline-flexible"
+                                label="Multiline"
+                                multiline
+                                rowsMax={4}
+                                onChange={(e) => handleChange(e)}
+                                className={classes.inputStyle}
+                              />
+                          </Grid>
+                          <Grid item xs={12}>
+                              <TextField
+                                id="date"
+                                label="Date"
+                                type="date"
+                                className={classes.inputDateStyle}
+                                onChange={(e) => handleChange(e)}
+                                InputLabelProps={{
+                                  shrink: true,
+                                }}
+                              />
+                          </Grid>
+                  </Grid>
+              </Grid>{/*container 1*/}
+              <Grid container style={{marginTop: '30px'}}>
                 <Grid item xs={12} md={6}>
-                  <label className={classes.label} for="File">
-                    Upload File
-                  </label>
-                  <input type="file" id="File" />
+                    <Grid container>
+                        <Grid item xs={12} md={4}>
+                            <label className={classes.label} for="File">
+                            Upload File
+                          </label>
+                          <input type="file" id="File" style={{display:'none'}}/>
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <label className={classes.label2} for="originalFile">
+                            Upload Original File
+                          </label>
+                          <input type="file" id="originalFile" style={{backgroundColor:'white',display:'none'}}/>
+                        </Grid>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12} md={6}>
-                  <label className={classes.label} for="originalFile">
-                    Upload Original File
-                  </label>
-                  <input type="file" id="originalFile" style={{backgroundColor:'white'}}/>
-                </Grid>
-              </Grid>
-              <FormControl className={classes.formControl}>
-                <InputLabel id="demo-simple-select-helper-label">
-                  File Type
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-helper-label"
-                  id="demo-simple-select-helper"
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-                <FormHelperText>Selected Content Type</FormHelperText>
-              </FormControl>
+                  <Grid item md={6} xs={12}>
+                        <FormControl className={classes.formControl2}>
+                          <InputLabel id="demo-simple-select-helper-label">
+                            File Type
+                          </InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                          </Select>
+                          <FormHelperText>Selected Content Type</FormHelperText>
+                        </FormControl>
+                  </Grid>
+              </Grid> 
               <div
                 style={{
                   display: "flex",
-                  justifyContent: "center",
+                  marginLeft: '350px',
+                  marginTop: '60px',
                   marginBottom: "50px",
                 }}
               >
                 <Box style={{ marginRight: "30px" }}>
-                  <button className="btn" style={{backgroundColor:'black',color:"white",fontStyle:'italic',}}>Preview</button>
+                  <button className="btn" style={{backgroundColor:'white',color:"#1976D2", border: '1px solid black' , width: '120px', padding: '8px'}}>Preview</button>
                 </Box>
-                <button className="btn" style={{backgroundColor:'black',color:"white",fontStyle:'italic',}}>Upload</button>
+                <button className="btn" style={{backgroundColor:'#1976D2',color:"white",width: '120px', padding: '8px'}}>Upload</button>
               </div>
-            </div>
-          </Grid>
-        </Grid>
-      </div>
-      <Footer />
-    </div>
+          </div>
+          <div style={{marginTop:'50px'}}>
+              <Footer />
+          </div>
+    </React.Fragment>    
   );
 }
 
