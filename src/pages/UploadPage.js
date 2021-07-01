@@ -77,7 +77,8 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     marginBottom: "20px",
     marginLeft: '6px',
-    marginTop: '10.5px'
+    marginTop: '10.5px',
+
   },
   inputDateStyle: {
     outline: "none",
@@ -101,6 +102,10 @@ const useStyles = makeStyles((theme) => ({
   },
   line: {
     width: "95%",
+  },
+  option: {
+    fontFamily: "Poppins",
+    fontWeight: "600",
   },
 
   label2: {
@@ -151,7 +156,7 @@ function UploadPage() {
                   <Grid item xs={12} md={6}>
                         <FormControl className={classes.formControl}>
                           <InputLabel id="demo-simple-select-helper-label">
-                            Category
+                          <div className={classes.option}>Category</div>
                           </InputLabel>
                           <Select
                             labelId="demo-simple-select-helper-label"
@@ -167,19 +172,21 @@ function UploadPage() {
                           <FormHelperText>Selected Fund Type</FormHelperText>
                         </FormControl>
                         {/* End of form control one */}
-                        <TextField
+                       <TextField
                                 id="standard-multiline-flexible"
                                 label="Description"
                                 multiline
+                                
                                 rowsMax={4}
                                 onChange={(e) => handleChange(e)}
+                          
                                 className={classes.inputStyle}
                               />
                         {/* End of form control two */}
 
                         <FormControl className={classes.formControl}>
                           <InputLabel id="demo-simple-select-helper-label">
-                            Marketing Content Type
+                          <div className={classes.option}> Marketing Content Type</div>
                           </InputLabel>
                           <Select
                             labelId="demo-simple-select-helper-label"
@@ -207,7 +214,7 @@ function UploadPage() {
                         <Grid item xs={12} >
                         <FormControl className={classes.formControl}>
                           <InputLabel id="demo-simple-select-helper-label">
-                            Sub-Category
+                          <div className={classes.option}>Sub-Category</div>
                           </InputLabel>
                           <Select
                             labelId="demo-simple-select-helper-label"
@@ -225,6 +232,7 @@ function UploadPage() {
                               
                           </Grid>
                           <Grid item xs={12}>
+                          
                               <TextField
                                 id="date"
                                 label="Date"
@@ -239,7 +247,7 @@ function UploadPage() {
                           <Grid item xs ={12}>
                           <FormControl className={classes.formControl2}>
                           <InputLabel id="demo-simple-select-helper-label">
-                            File Type
+                          <div className={classes.option}>File Type</div>  
                           </InputLabel>
                           <Select
                             labelId="demo-simple-select-helper-label"

@@ -18,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    paddingBottom:'5%'
+    paddingBottom:'10%'
+    
   },
   root: {
     fontFamily: 'Poppins',
@@ -28,8 +29,7 @@ const useStyles = makeStyles((theme) => ({
     overflowY : 'hidden',
     boxShadow:'5px 5px 18px rgb(197, 197, 197)',
     borderRadius: "20px",
-    backgroundColor: "#fff",
-    paddingBottom:'50px'
+    backgroundColor: "#fff"
   },
   
   line: {
@@ -123,6 +123,7 @@ function Profile() {
               md={6}
             >
               <div style={{fontWeight:'bold',fontSize: "26px" }}>User Profile</div>
+              <hr/>
               <Grid container style={{marginTop:'20px'}} >
                 <Grid item xs={12} md={6}>
                 <div style={{fontWeight: '600'}}>Distributor Name</div>
