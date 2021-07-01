@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow:'5px 5px 18px rgb(197, 197, 197)',
     borderRadius: "20px",
     backgroundColor: "#fff",
+    paddingBottom:'50px'
   },
   
   line: {
@@ -116,12 +117,13 @@ function Profile() {
 
             <Grid
               className={classes.imgMargin}
-              style={{ marginLeft: "50px" ,marginTop: '50px' }}
+              style={{ marginLeft: "50px" ,marginTop: '20px' }}
               item
               xs={12}
               md={6}
             >
-              <Grid container >
+              <div style={{fontWeight:'bold',fontSize: "26px" }}>User Profile</div>
+              <Grid container style={{marginTop:'20px'}} >
                 <Grid item xs={12} md={6}>
                 <div style={{fontWeight: '600'}}>Distributor Name</div>
                   <div className={classes.bold}>{name}</div>
