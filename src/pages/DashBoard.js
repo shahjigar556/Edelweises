@@ -45,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
   },
   option: {
     fontFamily: "Poppins",
-    fontStyle: "italic",
     fontWeight: "600",
   },
 }));

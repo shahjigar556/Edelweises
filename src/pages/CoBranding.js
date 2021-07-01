@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
   heading: {
     fontWeight: "bold",
     fontSize:'30px',
-    fontStyle:'italic'
   },
   imgAlign: {
     display: "flex",
@@ -103,14 +102,14 @@ function CoBranding() {
                     color="primary"
                     inputProps={{ "aria-label": "secondary checkbox" }}
                   />
-                  <span style={{fontStyle:'italic'}}>Logo</span>
+                  <span  >Logo</span>
                 </div>
 
                 <Checkbox
                   color="primary"
                   inputProps={{ "aria-label": "secondary checkbox" }}
                 />
-                <span style={{fontStyle:'italic'}}>Text</span>
+                <span  >Text</span>
               </Grid>
               <Grid item sm={6} xs={12}>
                 <div className={classes.imgAlign}>
@@ -127,7 +126,7 @@ function CoBranding() {
                     <Button text="Upload New"  color="white" backgroundColor="black"/>
                     <button
                       onClick={handleLogoUpdate}
-                      style={{ marginTop: "10px",backgroundColor:'black',color:"white",fontStyle:'italic' }}
+                      style={{ marginTop: "10px",backgroundColor:'black',color:"white"}}
                       className="btn"
                     >
                       Update
@@ -146,7 +145,7 @@ function CoBranding() {
                 <input className={classes.input} type="text" id="ARN" />
               </Grid>
             </Grid>
-            <div style={{ marginTop: "20px", fontWeight: "bold" ,fontSize:'30px',fontStyle:'italic'}}>
+            <div style={{ marginTop: "20px", fontWeight: "bold" ,fontSize:'30px',}}>
               Additional Details
             </div>
             <div style={{ marginTop: "30px" }}>

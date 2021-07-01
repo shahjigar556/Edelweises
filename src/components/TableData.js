@@ -25,9 +25,10 @@ function TableData({ val }) {
         <td>MF store test</td>
         <td>
         <img src={Down} alt="Download-image" style={{ height: "15px", width: "auto", display: "inline-block" }}/>
-        <p style={{ display: "inline-block", marginLeft: "15px" }} className={classes.p}>DOWNLOAD</p>
+        {/* <p style={{ display: "inline-block", marginLeft: "15px" }} className={classes.p}>DOWNLOAD</p> */}
         </td>
         <td>
+        
         <i class="far fa-eye" style={{ display: "inline-block" ,marginLeft:'10px' }}></i>{" "}
         <i class="fas fa-palette" style={{ display: "inline-block" ,marginLeft:'10px'}}></i>{" "}
         <i class="far fa-trash-alt" style={{ display: "inline-block" ,marginLeft:'10px'}}></i>

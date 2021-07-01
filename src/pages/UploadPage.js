@@ -63,10 +63,10 @@ const useStyles = makeStyles((theme) => ({
     fontWeight:'900'
   },
   formControl2: {
-    marginTop: '-20px',
+    marginTop: '20px',
+    marginLeft: '6px',
     width: "90%",
     minWidth: 120,
-    fontStyle:'italic',
     fontFamily:'poppins',
     fontWeight:'900'
   },
@@ -76,35 +76,40 @@ const useStyles = makeStyles((theme) => ({
     outline: "none",
     border: "none",
     marginBottom: "20px",
+    marginLeft: '6px',
     marginTop: '10.5px'
   },
   inputDateStyle: {
     outline: "none",
     border: "none",
     marginBottom: "10px",
-    marginTop: '2px',
-    marginLeft: '-2px',     
+    marginLeft: '6px',
+    marginTop: '10px',     
     width: "90%",
     cursor:'pointer',
     fontStyle:'poppins',
   },
   label: {
-    marginBottom: "10px",
+    margin: "30px 0px 30px 10px",
     backgroundColor:'#ececec',
     color:"black",
-    width: '140px',
-    marginLeft: '10px',    
+    textAlign: 'center',
+    width: '200px', 
     borderRadius:'5px',
     padding:'10px 20px 10px 20px',
     cursor:'pointer'
   },
+  line: {
+    width: "95%",
+  },
 
   label2: {
-    marginBottom: "10px",
+    margin: "36px 0px 30px 0px",
     backgroundColor:'#ececec',
     color:"black",
-    width: '210px',
-    marginLeft: '15px',
+    width: '200px',
+    marginLeft: '10px',
+    textAlign: 'center',
     borderRadius:'5px',
     padding:'10px 20px 10px 20px',
     cursor:'pointer'
@@ -136,6 +141,12 @@ function UploadPage() {
   return (
     <React.Fragment>
           <div className={classes.root}>
+          <div style={{ display: "flex" }}>
+          <div style={{ fontSize: "30px", fontWeight: "bold" }}>
+            Upload Media
+          </div>
+        </div>
+        <hr className={classes.line} />
               <Grid container>
                   <Grid item xs={12} md={6}>
                         <FormControl className={classes.formControl}>
@@ -156,24 +167,14 @@ function UploadPage() {
                           <FormHelperText>Selected Fund Type</FormHelperText>
                         </FormControl>
                         {/* End of form control one */}
-
-                        <FormControl className={classes.formControl}>
-                          <InputLabel id="demo-simple-select-helper-label">
-                            Sub-Category
-                          </InputLabel>
-                          <Select
-                            labelId="demo-simple-select-helper-label"
-                            id="demo-simple-select-helper"
-                          >
-                            <MenuItem value="">
-                              <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
-                          </Select>
-                          <FormHelperText>Selected Fund Name</FormHelperText>
-                        </FormControl>
+                        <TextField
+                                id="standard-multiline-flexible"
+                                label="Description"
+                                multiline
+                                rowsMax={4}
+                                onChange={(e) => handleChange(e)}
+                                className={classes.inputStyle}
+                              />
                         {/* End of form control two */}
 
                         <FormControl className={classes.formControl}>
@@ -193,18 +194,35 @@ function UploadPage() {
                           </Select>
                           <FormHelperText>Selected Content Type</FormHelperText>
                         </FormControl>
+
+                        {/* <Grid item xs={12} md={4} style={{marginLeft: '30px'}}> */}
+                            <label className={classes.label} for="File">
+                            Upload File
+                          </label>
+                          <input type="file" id="File" style={{display:'none'}}/>
+                        {/* </Grid> */}
                         {/* End of form control three */}
                   </Grid>
                   <Grid item xs={12} md={6}>
                         <Grid item xs={12} >
-                              <TextField
-                                id="standard-multiline-flexible"
-                                label="Multiline"
-                                multiline
-                                rowsMax={4}
-                                onChange={(e) => handleChange(e)}
-                                className={classes.inputStyle}
-                              />
+                        <FormControl className={classes.formControl}>
+                          <InputLabel id="demo-simple-select-helper-label">
+                            Sub-Category
+                          </InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                          </Select>
+                          <FormHelperText>Selected Fund Name</FormHelperText>
+                        </FormControl>
+                              
                           </Grid>
                           <Grid item xs={12}>
                               <TextField
@@ -218,27 +236,8 @@ function UploadPage() {
                                 }}
                               />
                           </Grid>
-                  </Grid>
-              </Grid>{/*container 1*/}
-              <Grid container style={{marginTop: '30px'}}>
-                <Grid item xs={12} md={6}>
-                    <Grid container>
-                        <Grid item xs={12} md={4}>
-                            <label className={classes.label} for="File">
-                            Upload File
-                          </label>
-                          <input type="file" id="File" style={{display:'none'}}/>
-                        </Grid>
-                        <Grid item xs={12} md={4}>
-                            <label className={classes.label2} for="originalFile">
-                            Upload Original File
-                          </label>
-                          <input type="file" id="originalFile" style={{backgroundColor:'white',display:'none'}}/>
-                        </Grid>
-                    </Grid>
-                </Grid>
-                  <Grid item md={6} xs={12}>
-                        <FormControl className={classes.formControl2}>
+                          <Grid item xs ={12}>
+                          <FormControl className={classes.formControl2}>
                           <InputLabel id="demo-simple-select-helper-label">
                             File Type
                           </InputLabel>
@@ -255,8 +254,32 @@ function UploadPage() {
                           </Select>
                           <FormHelperText>Selected Content Type</FormHelperText>
                         </FormControl>
+
+                        <label className={classes.label2} for="originalFile">
+                            Upload Original File
+                          </label>
+                          <input type="file" id="originalFile" style={{backgroundColor:'white',display:'none'}}/>
+                          </Grid>
                   </Grid>
-              </Grid> 
+              </Grid>{/*container 1*/}
+              {/* <Grid container style={{marginTop: '30px', marginLeft: '50px'}} >
+                <Grid item xs={12} md={6}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} md={4} style={{marginLeft: '30px'}}>
+                            <label className={classes.label} for="File">
+                            Upload File
+                          </label>
+                          <input type="file" id="File" style={{display:'none'}}/>
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <label className={classes.label2} for="originalFile">
+                            Upload Original File
+                          </label>
+                          <input type="file" id="originalFile" style={{backgroundColor:'white',display:'none'}}/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+              </Grid>  */}
               <div
                 style={{
                   display: "flex",

@@ -30,10 +30,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "20px",
     backgroundColor: "#fff",
   },
-  bold: {
-    // fontWeight: "bold",
-    // fontStyle:'italic'
-  },
+  
   line: {
     width: "100%",
     marginTop: '5px',
@@ -140,15 +137,15 @@ function Profile() {
                 <hr className={classes.line} />
               </Grid>
               <Grid container>
-                <Grid className={classes.margin} item xs={12} md={6}>
+                <Grid className={classes.margin} item xs={12} md={12}>
                 <div style={{fontWeight: '600'}}>Name of the Person</div>
                   <div className={classes.bold}>{personName}</div>
                 </Grid>
-                <Grid className={classes.margin} item xs={12} md={6}>
+                <Grid className={classes.margin} item xs={12} md={12} style={{marginTop:'10px'}}>
                 <div style={{fontWeight: '600'}}>Email ID</div>
                   <div className={classes.bold}>{email}</div>
                 </Grid>
-                <Grid item xs={12} md={6} style={{ marginTop: "25px" }}>
+                <Grid item xs={12} md={6} style={{ marginTop: "10px" }}>
                 <div style={{fontWeight: '600'}}>Mobile Number</div>
                   <div className={classes.bold}>{mobile}</div>
                 </Grid>
